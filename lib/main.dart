@@ -72,6 +72,44 @@ class HomeScreen extends StatelessWidget {
           }
         },
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.all(0),
+                child: UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color: Colors.white70),
+                  accountName: Text('Md. Arafat Rahman',style: TextStyle(color: Colors.black)),
+                  accountEmail: Text('arafat.roman@outlook.com', style: TextStyle(color: Colors.black)),
+                  currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
+                  onDetailsPressed: (){
+                    MySnackBar('My Profile', context);
+                  },
+                )),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: (){
+                MySnackBar('home', context);
+              },
+            ),
+            ListTile(
+                leading: Icon(Icons.email),
+                title: Text('Email'),
+                onTap: (){
+                  MySnackBar('Email', context);
+                },
+            ),
+            ListTile(
+                leading: Icon(Icons.phone),
+                title: Text('Phone'),
+                onTap: (){
+                  MySnackBar('Phone', context);
+                },
+            ),
+          ],
+        ),
+      ),
 
     );
   }
