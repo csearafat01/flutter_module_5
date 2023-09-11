@@ -55,6 +55,23 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.green,
         onPressed: (){MySnackBar('FloatingAction', context);},
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Message'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+        onTap: (int index){
+          if(index == 0){
+            MySnackBar('message', context);
+          }if(index == 1){
+            MySnackBar('home', context);
+          }if(index == 2){
+            MySnackBar('profile', context);
+          }
+        },
+      ),
 
     );
   }
