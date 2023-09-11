@@ -1,51 +1,60 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MyApp());
+  // give me some widget
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
       title: 'Flutter Module 5',
-      theme: ThemeData(primarySwatch: Colors.green),
-      darkTheme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(title: 'Flutter Module 5 MaterialApp'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)
+        )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       appBar: AppBar(
 
-        title: Text(widget.title),
+        title: const Text('Innovation App'),
+        titleSpacing: 10,
+        ///centerTitle: true,
+        toolbarHeight: 60,
+        toolbarOpacity: 1,
+        elevation: 6,
+        backgroundColor: Colors.amber,
+        actions: [
+          IconButton(onPressed: (){MySnackBar('comment', context);}, icon: Icon(Icons.comment)),
+          IconButton(onPressed: (){MySnackBar('search', context);}, icon: Icon(Icons.search)),
+          IconButton(onPressed: (){MySnackBar('settings', context);}, icon: Icon(Icons.settings)),
+          IconButton(onPressed: (){MySnackBar('email', context);}, icon: Icon(Icons.email))
+        ],
+
       ),
 
-      body: (Text('Scaffold class')),
+      body: (const Text('')),
       ///drawer: (),
       ///endDrawer: (),
       ///bottomNavigationBar: (),
       ///floatingActionButton: ()
+
     );
   }
 }
