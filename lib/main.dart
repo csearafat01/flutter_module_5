@@ -31,6 +31,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
 
         title: const Text('Innovation App'),
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
         toolbarHeight: 60,
         toolbarOpacity: 1,
         elevation: 6,
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.green,
         actions: [
           IconButton(onPressed: (){MySnackBar('comment', context);}, icon: Icon(Icons.comment)),
           IconButton(onPressed: (){MySnackBar('search', context);}, icon: Icon(Icons.search)),
@@ -48,12 +49,12 @@ class HomeScreen extends StatelessWidget {
         ],
 
       ),
-
-      body: (const Text('')),
-      ///drawer: (),
-      ///endDrawer: (),
-      ///bottomNavigationBar: (),
-      ///floatingActionButton: ()
+      floatingActionButton: FloatingActionButton(
+        elevation: 18,
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
+        onPressed: (){MySnackBar('FloatingAction', context);},
+      ),
 
     );
   }
